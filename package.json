@@ -1,0 +1,27 @@
+{
+  "name": "homework1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js localhost 4040 rs --ignore db/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProkhoDim/node-js.git"
+  },
+  "author": "Dmitrij Prokhorenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProkhoDim/node-js/issues"
+  },
+  "homepage": "https://github.com/ProkhoDim/node-js#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "yargs": "^16.0.3"
+  }
+}
