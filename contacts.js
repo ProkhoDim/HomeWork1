@@ -3,7 +3,6 @@ const path = require('path');
 const contactsPath = path.resolve(__dirname, 'db', 'contacts.json');
 
 const getContacts = async () => {
-  console.log(contactsPath);
   const contacts = await fs.readFile(contactsPath, {
     encoding: 'utf-8',
   });
@@ -29,7 +28,7 @@ async function removeContact(contactId) {
   return updatedContacts;
 }
 
-async function addContact(name, email, phone) {
+async function addContact({ name, email, phone }) {
   const contacts = await getContacts();
   const contactId = contacts.length ? [...contacts].pop().id + 1 : 1;
   const newContact = { id: contactId, name, email, phone };
