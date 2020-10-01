@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "dev": "nodemon ./index.js localhost 4040 rs --ignore db/",
+    "dev": "nodemon ./index.js --ignore db/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/ProkhoDim/node-js#readme",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "yargs": "^16.0.3",
+    "cors": "^2.8.5",
+    "http": "0.0.1-security"
   },
-  "dependencies": {
-    "http": "0.0.1-security",
-    "yargs": "^16.0.3"
-  }
+  "dependencies": {}
 }
