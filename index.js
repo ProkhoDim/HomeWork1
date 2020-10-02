@@ -1,5 +1,10 @@
-const contacts = require('./contacts');
 const argv = require('yargs').argv;
+const express = require('express');
+const contacts = require('./api/contacts/contacts');
+const contactsRouter = require('./api/contacts/routes');
+const cors = require('cors');
+const PORT = 4040;
+const app = express();
 
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
@@ -13,7 +18,7 @@ function invokeAction({ action, id, name, email, phone }) {
 
     case 'add':
       contacts
-        .addContact(name, email, phone)
+        .addContact({ name, email, phone })
         .then(contact => console.table(contact));
       break;
 
@@ -33,3 +38,13 @@ function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(argv);
+
+app.use(cors());
+
+app.use(express.json());
+
+app.use('/api/contacts', contactsRouter);
+
+app.listen(PORT, () => {
+  console.log(`Server listen on PORT: ${PORT}`);
+});
