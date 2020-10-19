@@ -28,7 +28,7 @@ const addContactsController = async (req, res, next) => {
     if (!body.name || !body.phone || !body.email || !body.password) {
       res.status(400).json({ message: 'missing required name field' });
     }
-    const isContactExist = ContactsDB.findContactByEmail(body.email);
+    const isContactExist = await ContactsDB.findContactByEmail(body.email);
     if (isContactExist) {
       return res
         .status(400)
